@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Healthy Habits 🌸</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================
+   🌸 HEALTHY HABITS - CUTE PINK WEB APP
+========================================= */
+
+:root{
+  --bg:#FFF7FA;
+  --pink-soft:#FFE1EA;
+  --pink-light:#FFC2D3;
+  --pink:#FF8FB3;
+  --pink-hot:#F45F91;
+  --purple:#7A3B69;
+  --purple-dark:#54233F;
+  --lavender:#EEE3FF;
+  --peach:#FFE5DA;
+  --white:#FFFFFF;
+  --text:#5E3A50;
+  --green:#BFE8C9;
+  --green-text:#4E8B61;
+  --shadow:0 18px 45px rgba(244,95,145,.16);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Prompt',sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%,#FFE6EF 0,transparent 28%),
+    radial-gradient(circle at 90% 20%,#F2E6FF 0,transparent 30%),
+    linear-gradient(180deg,#FFF9FB,#FFF1F6);
+  color:var(--text);
+  overflow-x:hidden;
+  min-height:100vh;
+}
+
+/* =========================================
+   🫧 BACKGROUND
+========================================= */
+
+.decoration{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  overflow:hidden;
+  z-index:-1;
+}
+
+.bubble{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,.35);
+  border:2px solid rgba(255,143,179,.22);
+  animation:floatBubble 9s infinite ease-in-out;
+}
+
+.b1{width:90px;height:90px;left:4%;top:12%;}
+.b2{width:45px;height:45px;right:8%;top:22%;animation-delay:2s;}
+.b3{width:110px;height:110px;right:10%;bottom:12%;animation-delay:4s;}
+.b4{width:55px;height:55px;left:12%;bottom:15%;animation-delay:1s;}
+
+@keyframes floatBubble{
+  0%,100%{
+    transform:translateY(0) translateX(0);
+  }
+  50%{
+    transform:translateY(-35px) translateX(15px);
+  }
+}
+
+/* =========================================
+   📱 PAGES
+========================================= */
+
+.page{
+  display:none;
+  min-height:100vh;
+  width:100%;
+  padding:30px 20px;
+  animation:pageEnter .6s ease;
+}
+
+.page.active{
+  display:flex;
+  flex-direction:column;
+}
+
+@keyframes pageEnter{
+  from{
+    opacity:0;
+    transform:translateY(25px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =========================================
+   🏠 WELCOME
+========================================= */
+
+#welcomePage{
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.welcome-card{
+  width:min(900px,95%);
+  padding:65px 35px;
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(14px);
+  border-radius:50px;
+  box-shadow:var(--shadow);
+  border:1px solid rgba(255,255,255,.9);
+  position:relative;
+  overflow:hidden;
+}
+
+.welcome-card::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  background:var(--pink-soft);
+  border-radius:50%;
+  top:-70px;
+  left:-50px;
+  opacity:.7;
+}
+
+.welcome-icon{
+  font-size:95px;
+  display:block;
+  animation:heroFloat 3s infinite ease-in-out;
+}
+
+@keyframes heroFloat{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-16px);}
+}
+
+.welcome-card h1{
+  font-size:clamp(50px,9vw,100px);
+  line-height:1;
+  color:var(--pink-hot);
+  margin:20px 0;
+}
+
+.welcome-card h1 span{
+  color:var(--purple);
+}
+
+.welcome-card p{
+  font-size:clamp(17px,2.5vw,23px);
+  line-height:1.8;
+}
+
+.main-btn{
+  border:none;
+  margin-top:30px;
+  padding:15px 38px;
+  border-radius:50px;
+  font-family:inherit;
+  font-size:18px;
+  font-weight:600;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(135deg,var(--pink-hot),var(--pink));
+  box-shadow:0 12px 25px rgba(244,95,145,.3);
+  transition:.3s;
+}
+
+.main-btn:hover{
+  transform:translateY(-5px) scale(1.05);
+}
+
+/* =========================================
+   🗂️ MENU
+========================================= */
+
+#menuPage{
+  align-items:center;
+  justify-content:center;
+}
+
+.page-container,
+.content-wrapper{
+  width:min(1200px,100%);
+  margin:auto;
+}
+
+.page-title,
+.content-header{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.title-icon,
+.content-icon{
+  font-size:65px;
+  display:block;
+  margin-bottom:8px;
+}
+
+.page-title h2,
+.content-header h2{
+  font-size:clamp(35px,6vw,58px);
+  color:var(--pink-hot);
+}
+
+.page-title p,
+.content-header p{
+  margin-top:10px;
+  font-size:18px;
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.menu-card{
+  min-height:340px;
+  background:rgba(255,255,255,.88);
+  border-radius:35px;
+  padding:35px 25px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  border:1px solid #FFE5ED;
+  cursor:pointer;
+  transition:.35s;
+  position:relative;
+  overflow:hidden;
+}
+
+.menu-card:hover{
+  transform:translateY(-12px);
+}
+
+.menu-card::after{
+  content:"";
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  position:absolute;
+  bottom:-70px;
+  right:-60px;
+  background:var(--pink-soft);
+  opacity:.6;
+}
+
+.menu-card:nth-child(2)::after{
+  background:var(--lavender);
+}
+
+.menu-card:nth-child(3)::after{
+  background:var(--peach);
+}
+
+.menu-icon{
+  font-size:75px;
+  display:block;
+  margin:10px 0 20px;
+}
+
+.menu-card h3{
+  color:var(--purple);
+  font-size:27px;
+  margin-bottom:10px;
+}
+
+.menu-card p{
+  min-height:55px;
+}
+
+.menu-go{
+  display:inline-block;
+  margin-top:20px;
+  padding:10px 23px;
+  border-radius:30px;
+  color:white;
+  background:var(--pink-hot);
+  font-weight:600;
+}
+
+/* =========================================
+   🔙 BACK BUTTON
+========================================= */
+
+.back-btn{
+  border:none;
+  background:white;
+  color:var(--purple);
+  padding:10px 20px;
+  border-radius:50px;
+  box-shadow:0 6px 18px rgba(244,95,145,.12);
+  cursor:pointer;
+  font-family:inherit;
+  font-size:15px;
+  margin-bottom:25px;
+}
+
+.back-btn:hover{
+  background:var(--pink-soft);
+}
+
+/* =========================================
+   📚 VOCABULARY
+========================================= */
+
+.category-block{
+  margin:45px 0;
+}
+
+.category-label{
+  display:inline-block;
+  padding:12px 25px;
+  border-radius:50px;
+  font-weight:600;
+  font-size:21px;
+  margin-bottom:25px;
+}
+
+.healthy-label{
+  background:#DDF4E4;
+  color:var(--green-text);
+}
+
+.unhealthy-label{
+  background:#FFE1EA;
+  color:#C8527A;
+}
+
+.vocab-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:22px;
+}
+
+.vocab-card{
+  background:white;
+  padding:15px;
+  border-radius:28px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(244,95,145,.1);
+  transition:.3s;
+}
+
+.vocab-card:hover{
+  transform:translateY(-8px);
+}
+
+.vocab-card img{
+  width:100%;
+  height:145px;
+  object-fit:cover;
+  border-radius:20px;
+}
+
+.vocab-card h3{
+  color:var(--purple);
+  margin-top:12px;
+}
+
+.pronunciation{
+  color:var(--pink-hot);
+  margin:5px;
+}
+
+.listen-btn{
+  border:none;
+  margin-top:10px;
+  padding:8px 16px;
+  border-radius:50px;
+  background:var(--pink-soft);
+  color:var(--purple);
+  font-family:inherit;
+  cursor:pointer;
+}
+
+/* =========================================
+   💬 CONVERSATION
+========================================= */
+
+.pattern-card{
+  background:linear-gradient(135deg,#FFF0F5,#F3ECFF);
+  border:2px dashed var(--pink);
+  padding:35px;
+  border-radius:30px;
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.pattern-card h3{
+  color:var(--pink-hot);
+  margin-bottom:18px;
+}
+
+.pattern{
+  max-width:750px;
+  margin:12px auto;
+  padding:16px;
+  border-radius:18px;
+  background:white;
+  font-size:20px;
+  font-weight:600;
+  color:var(--purple);
+}
+
+.conversation-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+}
+
+.conversation-card{
+  background:white;
+  border-radius:28px;
+  padding:25px;
+  box-shadow:var(--shadow);
+}
+
+.chat-bubble{
+  padding:18px;
+  border-radius:20px;
+  margin-bottom:15px;
+}
+
+.chat-q{
+  background:#FFE5ED;
+  border-left:6px solid var(--pink-hot);
+}
+
+.chat-a{
+  background:#F0E7FF;
+  border-right:6px solid #B48AE0;
+  text-align:right;
+}
+
+/* =========================================
+   ⏰ FREQUENCY
+========================================= */
+
+.frequency-title{
+  text-align:center;
+  font-size:30px;
+  color:var(--purple);
+  margin:45px 0 25px;
+}
+
+.frequency-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.frequency-card{
+  background:white;
+  padding:20px;
+  text-align:center;
+  border-radius:22px;
+  box-shadow:0 8px 20px rgba(244,95,145,.1);
+}
+
+.frequency-card strong{
+  display:block;
+  color:var(--purple);
+  font-size:19px;
+}
+
+.thai-read{
+  color:var(--pink-hot);
+  margin:5px;
+}
+
+/* =========================================
+   🎮 GAME MENU
+========================================= */
+
+.game-menu{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.game-card{
+  background:white;
+  padding:30px 20px;
+  border-radius:30px;
+  text-align:center;
+  box-shadow:var(--shadow);
+  transition:.3s;
+}
+
+.game-card:hover{
+  transform:translateY(-8px);
+}
+
+.game-icon{
+  font-size:60px;
+}
+
+.game-card h3{
+  color:var(--purple);
+  margin:12px;
+}
+
+.game-btn{
+  border:none;
+  margin-top:18px;
+  padding:11px 25px;
+  border-radius:50px;
+  background:linear-gradient(135deg,var(--pink-hot),var(--pink));
+  color:white;
+  font-family:inherit;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* =========================================
+   GAME AREA
+========================================= */
+
+.game-area{
+  display:none;
+  margin-top:35px;
+  padding:35px;
+  background:rgba(255,255,255,.92);
+  border-radius:32px;
+  box-shadow:var(--shadow);
+}
+
+.game-area.active{
+  display:block;
+}
+
+.question-number{
+  text-align:center;
+  color:var(--pink-hot);
+  font-weight:bold;
+}
+
+.question-text{
+  text-align:center;
+  font-size:clamp(21px,4vw,30px);
+  margin:20px 0;
+}
+
+.game-image{
+  width:240px;
+  height:180px;
+  display:block;
+  object-fit:cover;
+  border-radius:25px;
+  margin:20px auto;
+  box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.options{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
+  max-width:750px;
+  margin:auto;
+}
+
+.option-btn{
+  padding:14px;
+  border:2px solid var(--pink-light);
+  border-radius:16px;
+  background:white;
+  font-family:inherit;
+  font-size:16px;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.option-btn:hover{
+  background:#FFF0F5;
+  transform:scale(1.03);
+}
+
+.correct{
+  background:#DDF6E4 !important;
+  border-color:#6BB783 !important;
+}
+
+.wrong{
+  background:#FFE1E1 !important;
+  border-color:#E87979 !important;
+}
+
+.feedback{
+  text-align:center;
+  margin-top:20px;
+  font-size:20px;
+  font-weight:600;
+}
+
+.next-btn{
+  display:block;
+  margin:20px auto;
+  padding:12px 28px;
+  border:none;
+  border-radius:50px;
+  background:var(--purple);
+  color:white;
+  font-family:inherit;
+  cursor:pointer;
+}
+
+.result-box{
+  text-align:center;
+}
+
+.result-box h2{
+  color:var(--pink-hot);
+  font-size:35px;
+}
+
+.mistake-list{
+  max-width:700px;
+  margin:25px auto;
+  padding:22px;
+  background:#FFF7FA;
+  border-radius:20px;
+  text-align:left;
+}
+
+/* =========================================
+   📅 FREQUENCY VISUAL
+========================================= */
+
+.frequency-visual{
+  max-width:750px;
+  margin:25px auto;
+  background:#FFF7FB;
+  padding:25px;
+  border-radius:25px;
+  border:2px dashed var(--pink-light);
+}
+
+.week-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+}
+
+.day-box{
+  background:white;
+  border-radius:15px;
+  padding:10px 5px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(244,95,145,.08);
+}
+
+.day-name{
+  font-size:12px;
+  color:var(--purple);
+  font-weight:bold;
+}
+
+.day-food{
+  font-size:27px;
+  margin-top:5px;
+}
+
+.no-food{
+  opacity:.25;
+}
+
+/* =========================================
+   EXTERNAL GAME
+========================================= */
+
+.external-game{
+  margin-top:35px;
+  text-align:center;
+  padding:45px 25px;
+  border-radius:35px;
+  background:linear-gradient(135deg,#FF8FB3,#B987D5);
+  color:white;
+}
+
+.external-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 30px;
+  border-radius:50px;
+  background:white;
+  color:var(--purple);
+  text-decoration:none;
+  font-weight:600;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+  text-align:center;
+  padding:30px;
+  margin-top:60px;
+  color:white;
+  background:linear-gradient(135deg,var(--purple),#A14D8A);
+  font-size:20px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:900px){
+
+  .menu-grid,
+  .game-menu{
+    grid-template-columns:1fr;
+    max-width:500px;
+    margin:auto;
+  }
+
+  .conversation-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .page{
+    padding:20px 12px;
+  }
+
+  .welcome-card{
+    padding:45px 20px;
+    border-radius:35px;
+  }
+
+  .vocab-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .vocab-card img{
+    height:105px;
+  }
+
+  .week-grid{
+    gap:4px;
+  }
+
+  .day-box{
+    padding:8px 2px;
+  }
+
+  .day-name{
+    font-size:9px;
+  }
+
+  .day-food{
+    font-size:20px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="decoration">
+  <div class="bubble b1"></div>
+  <div class="bubble b2"></div>
+  <div class="bubble b3"></div>
+  <div class="bubble b4"></div>
+</div>
+
+
+<!-- ========================================
+     🏠 WELCOME PAGE
+======================================== -->
+
+<div class="page active" id="welcomePage">
+
+  <div class="welcome-card">
+
+    <span class="welcome-icon">🌸🥗🫧</span>
+
+    <h1>Healthy <span>Habits</span></h1>
+
+    <p>
+      Let's learn about healthy food and good habits! 💕<br>
+      มาเรียนรู้ภาษาอังกฤษเกี่ยวกับอาหารและสุขนิสัยกันเถอะ
+    </p>
+
+    <button class="main-btn" onclick="showPage('menuPage')">
+      Let's Learn! 🚀
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ========================================
+     🗂️ MENU PAGE
+======================================== -->
+
+<div class="page" id="menuPage">
+
+<div class="page-container">
+
+<div class="page-title">
+<span class="title-icon">🌸📚✨</span>
+<h2>What do you want to learn?</h2>
+<p>Choose a learning activity and have fun! 💕</p>
+</div>
+
+<div class="menu-grid">
+
+<div class="menu-card" onclick="showPage('vocabularyPage')">
+<span class="menu-icon">📚</span>
+<h3>Vocabulary</h3>
+<p>Learn new words about healthy and unhealthy food.</p>
+<span class="menu-go">Let's Learn →</span>
+</div>
+
+<div class="menu-card" onclick="showPage('conversationPage')">
+<span class="menu-icon">💬</span>
+<h3>Conversation</h3>
+<p>Practice asking and answering about eating habits.</p>
+<span class="menu-go">Let's Talk →</span>
+</div>
+
+<div class="menu-card" onclick="showPage('gamePage')">
+<span class="menu-icon">🎮</span>
+<h3>Play & Learn</h3>
+<p>Challenge yourself with fun English games!</p>
+<span class="menu-go">Play Now →</span>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<!-- ========================================
+     📚 VOCABULARY PAGE
+======================================== -->
+
+<div class="page" id="vocabularyPage">
+
+<div class="content-wrapper">
+
+<button class="back-btn" onclick="showPage('menuPage')">
+← Back to Menu
+</button>
+
+<div class="content-header">
+<span class="content-icon">📚</span>
+<h2>Vocabulary</h2>
+<p>Click 🔊 to listen and practice pronunciation!</p>
+</div>
+
+<div class="category-block">
+<span class="category-label healthy-label">🥗 Healthy Food</span>
+<div class="vocab-grid" id="healthyGrid"></div>
+</div>
+
+<div class="category-block">
+<span class="category-label unhealthy-label">🍔 Unhealthy Food</span>
+<div class="vocab-grid" id="unhealthyGrid"></div>
+</div>
+
+</div>
+
+<footer>🌸 English is all around 🌸</footer>
+
+</div>
+
+
+<!-- ========================================
+     💬 CONVERSATION PAGE
+======================================== -->
+
+<div class="page" id="conversationPage">
+
+<div class="content-wrapper">
+
+<button class="back-btn" onclick="showPage('menuPage')">
+← Back to Menu
+</button>
+
+<div class="content-header">
+<span class="content-icon">💬</span>
+<h2>Conversation</h2>
+<p>Let's talk about how often you eat! 😋</p>
+</div>
+
+<div class="pattern-card">
+
+<h3>📝 Sentence Pattern</h3>
+
+<div class="pattern">
+How often do you eat + food?
+</div>
+
+<div class="pattern">
+I eat + food + frequency.
+</div>
+
+</div>
+
+<div class="conversation-grid">
+
+<div class="conversation-card">
+
+<div class="chat-bubble chat-q">
+👩 <b>How often do you eat apples?</b><br>
+<button class="listen-btn" onclick="speak('How often do you eat apples?')">
+🔊 Listen
+</button>
+</div>
+
+<div class="chat-bubble chat-a">
+👦 <b>I eat apples every day.</b><br>
+<button class="listen-btn" onclick="speak('I eat apples every day.')">
+🔊 Listen
+</button>
+</div>
+
+</div>
+
+<div class="conversation-card">
+
+<div class="chat-bubble chat-q">
+👩 <b>How often do you eat pizza?</b><br>
+<button class="listen-btn" onclick="speak('How often do you eat pizza?')">
+🔊 Listen
+</button>
+</div>
+
+<div class="chat-bubble chat-a">
+👦 <b>I eat pizza once a week.</b><br>
+<button class="listen-btn" onclick="speak('I eat pizza once a week.')">
+🔊 Listen
+</button>
+</div>
+
+</div>
+
+</div>
+
+
+<h3 class="frequency-title">⏰ Frequency</h3>
+
+<div class="frequency-grid" id="frequencyGrid"></div>
+
+</div>
+
+<footer>🌸 English is all around 🌸</footer>
+
+</div>
+
+
+<!-- ========================================
+     🎮 GAME PAGE
+======================================== -->
+
+<div class="page" id="gamePage">
+
+<div class="content-wrapper">
+
+<button class="back-btn" onclick="showPage('menuPage')">
+← Back to Menu
+</button>
+
+<div class="content-header">
+<span class="content-icon">🎮</span>
+<h2>Play & Learn</h2>
+<p>Learn English through fun games! 🌸</p>
+</div>
+
+
+<div class="game-menu">
+
+<div class="game-card">
+<div class="game-icon">🖼️</div>
+<h3>Match the Picture</h3>
+<p>Look at the picture and choose the correct word.</p>
+<button class="game-btn" onclick="startGame1()">Play 🚀</button>
+</div>
+
+<div class="game-card">
+<div class="game-icon">✏️</div>
+<h3>Fill in the Blank</h3>
+<p>Look at the picture and complete the sentence.</p>
+<button class="game-btn" onclick="startGame2()">Play 🚀</button>
+</div>
+
+<div class="game-card">
+<div class="game-icon">💬</div>
+<h3>Complete Conversation</h3>
+<p>Look at the weekly clues and choose the frequency.</p>
+<button class="game-btn" onclick="startGame3()">Play 🚀</button>
+</div>
+
+</div>
+
+
+<!-- GAME 1 -->
+
+<div class="game-area" id="game1">
+<div class="question-number" id="g1number"></div>
+<div id="g1content"></div>
+<div class="feedback" id="g1feedback"></div>
+<button class="next-btn" id="g1next" style="display:none">
+Next Question ➜
+</button>
+</div>
+
+
+<!-- GAME 2 -->
+
+<div class="game-area" id="game2">
+<div class="question-number" id="g2number"></div>
+<div id="g2content"></div>
+<div class="feedback" id="g2feedback"></div>
+<button class="next-btn" id="g2next" style="display:none">
+Next Question ➜
+</button>
+</div>
+
+
+<!-- GAME 3 -->
+
+<div class="game-area" id="game3">
+<div class="question-number" id="g3number"></div>
+<div id="g3content"></div>
+<div class="feedback" id="g3feedback"></div>
+<button class="next-btn" id="g3next" style="display:none">
+Next Question ➜
+</button>
+</div>
+
+
+<!-- EXTERNAL GAME -->
+
+<div class="external-game">
+
+<div style="font-size:60px">🌴🩷🎮</div>
+
+<h2>Lagoon Game</h2>
+
+<p>Ready for another English adventure?</p>
+
+<a href="https://yungie-kaenchan.github.io/lagoon-game/login.html"
+target="_blank"
+class="external-btn">
+
+Play Now 🚀
+
+</a>
+
+</div>
+
+</div>
+
+<footer>🌸 English is all around 🌸</footer>
+
+</div>
+
+
+<script>
+
+/* ========================================
+   PAGE NAVIGATION
+======================================== */
+
+function showPage(pageId){
+
+document.querySelectorAll(".page").forEach(page=>{
+page.classList.remove("active");
+});
+
+document.getElementById(pageId).classList.add("active");
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* ========================================
+   TEXT TO SPEECH
+======================================== */
+
+function speak(text){
+
+if("speechSynthesis" in window){
+
+speechSynthesis.cancel();
+
+const speech=new SpeechSynthesisUtterance(text);
+
+speech.lang="en-US";
+speech.rate=.78;
+speech.pitch=1.1;
+
+speechSynthesis.speak(speech);
+
+}
+
+}
+
+
+/* ========================================
+   VOCABULARY DATA
+======================================== */
+
+const healthyFoods=[
+
+["apples","แอป-เปิ้ลส์","แอปเปิ้ล","https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6"],
+
+["banana","บะ-นา-น่า","กล้วย","https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e"],
+
+["orange","ออ-เรนจ์","ส้ม","https://images.unsplash.com/photo-1580052614034-c55d20bfee3b"],
+
+["tomato","ทะ-เม-โท","มะเขือเทศ","https://images.unsplash.com/photo-1546094096-0df4bcaaa337"],
+
+["grape","เกรพ","องุ่น","https://images.unsplash.com/photo-1537640538966-79f369143f8f"],
+
+["strawberry","สตรอ-เบอ-รี่","สตรอว์เบอร์รี่","https://images.unsplash.com/photo-1464965911861-746a04b4bca6"],
+
+["vegetables","เวจ-เท-เบิลส์","ผัก","https://images.unsplash.com/photo-1540420773420-3366772f4999"],
+
+["honey","ฮัน-นี่","น้ำผึ้ง","https://images.unsplash.com/photo-1587049352846-4a222e784d38"]
+
+];
+
+
+const unhealthyFoods=[
+
+["chocolate","ช็อก-โก-เลท","ช็อกโกแลต","https://images.unsplash.com/photo-1575377427642-087cf684f29d"],
+
+["instant noodles","อิน-สแทนท์ นู้ดเดิลส์","บะหมี่กึ่งสำเร็จรูป","https://images.unsplash.com/photo-1569718212165-3a8278d5f624"],
+
+["crisps","คริสพ์ส","มันฝรั่งทอดกรอบ","https://images.unsplash.com/photo-1566478989037-eec170784d0b"],
+
+["sausages","ซอ-สิจ-เจส","ไส้กรอก","https://images.unsplash.com/photo-1612392062798-2e70f37c3e5c"],
+
+["sweets","สวีทส์","ลูกอม, ขนมหวาน","https://images.unsplash.com/photo-1582058091505-f87a2e55a40f"],
+
+["biscuits","บิส-กิทส์","บิสกิต","https://images.unsplash.com/photo-1558961363-fa8fdf82db35"],
+
+["fast food","ฟาสท์ ฟู้ด","อาหารจานด่วน","https://images.unsplash.com/photo-1568901346375-23c9450c58cd"],
+
+["cake","เค้ก","เค้ก","https://images.unsplash.com/photo-1578985545062-69928b1d9587"],
+
+["pizza","พิซ-ซ่า","พิซซ่า","https://images.unsplash.com/photo-1513104890138-7c749659a591"],
+
+["ice cream","ไอซ์ ครีม","ไอศกรีม","https://images.unsplash.com/photo-1563805042-7684c019e1cb"],
+
+["fizzy drinks","ฟิซ-ซี่ ดริงก์ส","น้ำอัดลม","https://images.unsplash.com/photo-1629203849820-fdd70d49c38e"],
+
+["oil","ออยล์","น้ำมัน","https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5"]
+
+];
+
+const allFoods=[...healthyFoods,...unhealthyFoods];
+
+
+/* ========================================
+   CREATE VOCABULARY CARDS
+======================================== */
+
+function createCards(data,id){
+
+const container=document.getElementById(id);
+
+data.forEach(item=>{
+
+container.innerHTML+=`
+
+<div class="vocab-card">
+
+<img src="${item[3]}?auto=format&fit=crop&w=500&q=80"
+alt="${item[0]}">
+
+<h3>${item[0]}</h3>
+
+<div class="pronunciation">${item[1]}</div>
+
+<div>${item[2]}</div>
+
+<button class="listen-btn"
+onclick="speak('${item[0]}')">
+🔊 Listen
+</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+createCards(healthyFoods,"healthyGrid");
+createCards(unhealthyFoods,"unhealthyGrid");
+
+
+/* ========================================
+   FREQUENCY
+======================================== */
+
+const frequencies=[
+
+["every day","เอฟ-รี่ เดย์","ทุกวัน"],
+
+["almost every day","ออล-โมสต์ เอฟ-รี่ เดย์","เกือบทุกวัน"],
+
+["five times a week","ไฟว์ ไทมส์ อะ วีค","5 ครั้งต่อสัปดาห์"],
+
+["four times a week","โฟร์ ไทมส์ อะ วีค","4 ครั้งต่อสัปดาห์"],
+
+["three times a week","ทรี ไทมส์ อะ วีค","3 ครั้งต่อสัปดาห์"],
+
+["twice a week","ทไวซ์ อะ วีค","2 ครั้งต่อสัปดาห์"],
+
+["once a week","วันซ์ อะ วีค","สัปดาห์ละครั้ง"],
+
+["never","เนฟ-เวอร์","ไม่เคย"]
+
+];
+
+const frequencyGrid=document.getElementById("frequencyGrid");
+
+frequencies.forEach(item=>{
+
+frequencyGrid.innerHTML+=`
+
+<div class="frequency-card">
+
+<strong>${item[0]}</strong>
+
+<div class="thai-read">${item[1]}</div>
+
+<div>${item[2]}</div>
+
+<button class="listen-btn"
+onclick="speak('${item[0]}')">
+🔊 Listen
+</button>
+
+</div>
+
+`;
+
+});
+
+
+/* ========================================
+   SOUND EFFECTS
+======================================== */
+
+function playCorrectSound(){
+
+const AudioContext=window.AudioContext||window.webkitAudioContext;
+const ctx=new AudioContext();
+
+const osc=ctx.createOscillator();
+const gain=ctx.createGain();
+
+osc.frequency.setValueAtTime(600,ctx.currentTime);
+osc.frequency.linearRampToValueAtTime(950,ctx.currentTime+.2);
+
+gain.gain.setValueAtTime(.12,ctx.currentTime);
+gain.gain.exponentialRampToValueAtTime(.01,ctx.currentTime+.5);
+
+osc.connect(gain);
+gain.connect(ctx.destination);
+
+osc.start();
+osc.stop(ctx.currentTime+.5);
+
+}
+
+function playWrongSound(){
+
+const AudioContext=window.AudioContext||window.webkitAudioContext;
+const ctx=new AudioContext();
+
+const osc=ctx.createOscillator();
+const gain=ctx.createGain();
+
+osc.frequency.setValueAtTime(250,ctx.currentTime);
+osc.frequency.linearRampToValueAtTime(150,ctx.currentTime+.3);
+
+gain.gain.setValueAtTime(.12,ctx.currentTime);
+gain.gain.exponentialRampToValueAtTime(.01,ctx.currentTime+.5);
+
+osc.connect(gain);
+gain.connect(ctx.destination);
+
+osc.start();
+osc.stop(ctx.currentTime+.5);
+
+}
+
+
+/* ========================================
+   HELPER FUNCTIONS
+======================================== */
+
+function shuffle(array){
+return [...array].sort(()=>Math.random()-0.5);
+}
+
+function hideAllGames(){
+
+document.querySelectorAll(".game-area").forEach(game=>{
+game.classList.remove("active");
+});
+
+}
+
+
+/* ========================================
+   🎮 GAME 1
+   MATCH THE PICTURE
+======================================== */
+
+let game1Data=[];
+let game1Index=0;
+let game1Score=0;
+let game1Mistakes=[];
+
+function startGame1(){
+
+hideAllGames();
+
+document.getElementById("game1").classList.add("active");
+
+game1Data=shuffle(allFoods).slice(0,10);
+
+game1Index=0;
+game1Score=0;
+game1Mistakes=[];
+
+renderGame1();
+
+document.getElementById("game1").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function renderGame1(){
+
+const item=game1Data[game1Index];
+
+document.getElementById("g1number").innerText=
+`Question ${game1Index+1} / 10`;
+
+const wrongOptions=shuffle(
+allFoods.filter(x=>x[0]!==item[0])
+).slice(0,3);
+
+const options=shuffle([item,...wrongOptions]);
+
+document.getElementById("g1content").innerHTML=`
+
+<img class="game-image"
+src="${item[3]}?auto=format&fit=crop&w=500&q=80">
+
+<div class="question-text">
+What is this? 🤔
+</div>
+
+<div class="options">
+
+${options.map(option=>`
+
+<button class="option-btn"
+onclick="checkGame1(this,'${option[0]}','${item[0]}')">
+
+${option[0]}
+
+</button>
+
+`).join("")}
+
+</div>
+
+`;
+
+document.getElementById("g1feedback").innerHTML="";
+document.getElementById("g1next").style.display="none";
+
+}
+
+function checkGame1(button,answer,correct){
+
+document.querySelectorAll("#g1content .option-btn")
+.forEach(btn=>btn.disabled=true);
+
+if(answer===correct){
+
+button.classList.add("correct");
+
+document.getElementById("g1feedback").innerHTML=
+"🎉 Correct! Great job!";
+
+game1Score++;
+playCorrectSound();
+
+}else{
+
+button.classList.add("wrong");
+
+document.getElementById("g1feedback").innerHTML=
+`😢 Not quite! The answer is <b>${correct}</b>`;
+
+game1Mistakes.push(
+`Question ${game1Index+1}: Your answer "${answer}" → Correct: "${correct}"`
+);
+
+playWrongSound();
+
+}
+
+document.getElementById("g1next").style.display="block";
+
+}
+
+document.getElementById("g1next").onclick=()=>{
+
+game1Index++;
+
+if(game1Index<10){
+renderGame1();
+}else{
+showGame1Result();
+}
+
+};
+
+function showGame1Result(){
+
+document.getElementById("game1").innerHTML=`
+
+<div class="result-box">
+
+<h2>🏆 Game Finished!</h2>
+
+<h3>Your Score: ${game1Score} / 10</h3>
+
+<div class="mistake-list">
+
+<h3>❌ Mistakes</h3>
+
+${game1Mistakes.length
+?game1Mistakes.map(x=>`<p>• ${x}</p>`).join("")
+:"<p>🎉 Perfect! No mistakes!</p>"}
+
+</div>
+
+<button class="game-btn" onclick="startGame1()">
+Play Again 🔄
+</button>
+
+</div>
+
+`;
+
+}
+
+
+/* ========================================
+   🎮 GAME 2
+   LOOK AT THE PICTURE
+   FILL IN THE BLANK
+======================================== */
+
+let game2Data=[];
+let game2Index=0;
+let game2Score=0;
+let game2Mistakes=[];
+
+const sentencePatterns=[
+"I eat ______ every day.",
+"I like to eat ______.",
+"I eat ______ for a snack.",
+"My favorite food is ______.",
+"I sometimes eat ______."
+];
+
+function startGame2(){
+
+hideAllGames();
+
+document.getElementById("game2").classList.add("active");
+
+game2Data=shuffle(allFoods).slice(0,10);
+
+game2Index=0;
+game2Score=0;
+game2Mistakes=[];
+
+renderGame2();
+
+document.getElementById("game2").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function renderGame2(){
+
+const item=game2Data[game2Index];
+
+const sentence=sentencePatterns[
+game2Index % sentencePatterns.length
+];
+
+document.getElementById("g2number").innerText=
+`Question ${game2Index+1} / 10`;
+
+const wrongOptions=shuffle(
+allFoods.filter(x=>x[0]!==item[0])
+).slice(0,3);
+
+const options=shuffle([item,...wrongOptions]);
+
+document.getElementById("g2content").innerHTML=`
+
+<img class="game-image"
+src="${item[3]}?auto=format&fit=crop&w=500&q=80">
+
+<div class="question-text">
+${sentence}
+</div>
+
+<div class="options">
+
+${options.map(option=>`
+
+<button class="option-btn"
+onclick="checkGame2(this,'${option[0]}','${item[0]}')">
+
+${option[0]}
+
+</button>
+
+`).join("")}
+
+</div>
+
+`;
+
+document.getElementById("g2feedback").innerHTML="";
+document.getElementById("g2next").style.display="none";
+
+}
+
+function checkGame2(button,answer,correct){
+
+document.querySelectorAll("#g2content .option-btn")
+.forEach(btn=>btn.disabled=true);
+
+if(answer===correct){
+
+button.classList.add("correct");
+
+document.getElementById("g2feedback").innerHTML=
+"🎉 Correct! Excellent!";
+
+game2Score++;
+playCorrectSound();
+
+}else{
+
+button.classList.add("wrong");
+
+document.getElementById("g2feedback").innerHTML=
+`😢 Not quite! Correct answer: <b>${correct}</b>`;
+
+game2Mistakes.push(
+`Question ${game2Index+1}: Your answer "${answer}" → Correct: "${correct}"`
+);
+
+playWrongSound();
+
+}
+
+document.getElementById("g2next").style.display="block";
+
+}
+
+document.getElementById("g2next").onclick=()=>{
+
+game2Index++;
+
+if(game2Index<10){
+renderGame2();
+}else{
+showGame2Result();
+}
+
+};
+
+function showGame2Result(){
+
+document.getElementById("game2").innerHTML=`
+
+<div class="result-box">
+
+<h2>🏆 Fill in the Blank Finished!</h2>
+
+<h3>Your Score: ${game2Score} / 10</h3>
+
+<div class="mistake-list">
+
+<h3>❌ Mistakes</h3>
+
+${game2Mistakes.length
+?game2Mistakes.map(x=>`<p>• ${x}</p>`).join("")
+:"<p>🎉 Perfect! No mistakes!</p>"}
+
+</div>
+
+<button class="game-btn" onclick="startGame2()">
+Play Again 🔄
+</button>
+
+</div>
+
+`;
+
+}
+
+
+/* ========================================
+   🎮 GAME 3
+   COMPLETE CONVERSATION
+   VISUAL FREQUENCY CLUE
+======================================== */
+
+let game3Index=0;
+let game3Score=0;
+let game3Mistakes=[];
+
+const game3Data=[
+
+{
+food:"apples",
+emoji:"🍎",
+frequency:"every day",
+days:[1,1,1,1,1,1,1]
+},
+
+{
+food:"pizza",
+emoji:"🍕",
+frequency:"once a week",
+days:[0,0,1,0,0,0,0]
+},
+
+{
+food:"ice cream",
+emoji:"🍦",
+frequency:"twice a week",
+days:[1,0,0,1,0,0,0]
+},
+
+{
+food:"chocolate",
+emoji:"🍫",
+frequency:"three times a week",
+days:[1,0,1,0,1,0,0]
+},
+
+{
+food:"crisps",
+emoji:"🥔",
+frequency:"four times a week",
+days:[1,0,1,0,1,0,1]
+},
+
+{
+food:"vegetables",
+emoji:"🥦",
+frequency:"five times a week",
+days:[1,1,1,1,1,0,0]
+},
+
+{
+food:"fizzy drinks",
+emoji:"🥤",
+frequency:"almost every day",
+days:[1,1,1,1,1,1,0]
+},
+
+{
+food:"sweets",
+emoji:"🍬",
+frequency:"never",
+days:[0,0,0,0,0,0,0]
+},
+
+{
+food:"banana",
+emoji:"🍌",
+frequency:"every day",
+days:[1,1,1,1,1,1,1]
+},
+
+{
+food:"cake",
+emoji:"🍰",
+frequency:"once a week",
+days:[0,0,0,0,0,1,0]
+}
+
+];
+
+const weekDays=[
+"Mon","Tue","Wed","Thu","Fri","Sat","Sun"
+];
+
+function startGame3(){
+
+hideAllGames();
+
+document.getElementById("game3").classList.add("active");
+
+game3Index=0;
+game3Score=0;
+game3Mistakes=[];
+
+renderGame3();
+
+document.getElementById("game3").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+function renderGame3(){
+
+const item=game3Data[game3Index];
+
+document.getElementById("g3number").innerText=
+`Question ${game3Index+1} / 10`;
+
+const wrongOptions=shuffle(
+frequencies
+.map(x=>x[0])
+.filter(x=>x!==item.frequency)
+).slice(0,3);
+
+const options=shuffle([
+item.frequency,
+...wrongOptions
+]);
+
+document.getElementById("g3content").innerHTML=`
+
+<div class="frequency-visual">
+
+<div class="week-grid">
+
+${weekDays.map((day,index)=>`
+
+<div class="day-box">
+
+<div class="day-name">${day}</div>
+
+<div class="day-food ${item.days[index] ? "" : "no-food"}">
+
+${item.days[index] ? item.emoji : "○"}
+
+</div>
+
+</div>
+
+`).join("")}
+
+</div>
+
+</div>
+
+
+<div class="question-text">
+
+<b>How often do you eat ${item.food}?</b>
+
+<br><br>
+
+I eat ${item.food} ______.
+
+</div>
+
+
+<div class="options">
+
+${options.map(option=>`
+
+<button class="option-btn"
+onclick="checkGame3(this,'${option}','${item.frequency}')">
+
+${option}
+
+</button>
+
+`).join("")}
+
+</div>
+
+`;
+
+document.getElementById("g3feedback").innerHTML="";
+document.getElementById("g3next").style.display="none";
+
+}
+
+function checkGame3(button,answer,correct){
+
+document.querySelectorAll("#g3content .option-btn")
+.forEach(btn=>btn.disabled=true);
+
+if(answer===correct){
+
+button.classList.add("correct");
+
+document.getElementById("g3feedback").innerHTML=
+"🎉 Correct! Great job!";
+
+game3Score++;
+playCorrectSound();
+
+}else{
+
+button.classList.add("wrong");
+
+document.getElementById("g3feedback").innerHTML=
+`😢 Not quite! Correct answer: <b>${correct}</b>`;
+
+game3Mistakes.push(
+`Question ${game3Index+1}: Your answer "${answer}" → Correct: "${correct}"`
+);
+
+playWrongSound();
+
+}
+
+document.getElementById("g3next").style.display="block";
+
+}
+
+document.getElementById("g3next").onclick=()=>{
+
+game3Index++;
+
+if(game3Index<10){
+renderGame3();
+}else{
+showGame3Result();
+}
+
+};
+
+function showGame3Result(){
+
+document.getElementById("game3").innerHTML=`
+
+<div class="result-box">
+
+<h2>🏆 Conversation Master!</h2>
+
+<h3>Your Score: ${game3Score} / 10</h3>
+
+<p style="margin:15px">
+
+${game3Score===10
+?"🌟 Amazing! You are a Healthy Habits Master!"
+:"👏 Great effort! Keep practicing English!"}
+
+</p>
+
+<div class="mistake-list">
+
+<h3>❌ Mistakes</h3>
+
+${game3Mistakes.length
+?game3Mistakes.map(x=>`<p>• ${x}</p>`).join("")
+:"<p>🎉 Perfect! No mistakes!</p>"}
+
+</div>
+
+<button class="game-btn" onclick="startGame3()">
+Play Again 🔄
+</button>
+
+</div>
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
