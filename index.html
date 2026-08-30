@@ -52,8 +52,9 @@ body{
   min-height:100vh;
 }
 
+
 /* =========================================
-   🫧 BACKGROUND
+   🫧 BACKGROUND BUBBLES
 ========================================= */
 
 .decoration{
@@ -61,7 +62,7 @@ body{
   inset:0;
   pointer-events:none;
   overflow:hidden;
-  z-index:-1;
+  z-index:0;
 }
 
 .bubble{
@@ -72,19 +73,219 @@ body{
   animation:floatBubble 9s infinite ease-in-out;
 }
 
-.b1{width:90px;height:90px;left:4%;top:12%;}
-.b2{width:45px;height:45px;right:8%;top:22%;animation-delay:2s;}
-.b3{width:110px;height:110px;right:10%;bottom:12%;animation-delay:4s;}
-.b4{width:55px;height:55px;left:12%;bottom:15%;animation-delay:1s;}
+.b1{
+  width:90px;
+  height:90px;
+  left:4%;
+  top:12%;
+}
+
+.b2{
+  width:45px;
+  height:45px;
+  right:8%;
+  top:22%;
+  animation-delay:2s;
+}
+
+.b3{
+  width:110px;
+  height:110px;
+  right:10%;
+  bottom:12%;
+  animation-delay:4s;
+}
+
+.b4{
+  width:55px;
+  height:55px;
+  left:12%;
+  bottom:15%;
+  animation-delay:1s;
+}
 
 @keyframes floatBubble{
   0%,100%{
     transform:translateY(0) translateX(0);
   }
+
   50%{
     transform:translateY(-35px) translateX(15px);
   }
 }
+
+
+/* =========================================
+   🍎 FLOATING FOOD BACKGROUND
+========================================= */
+
+.floating-food-bg{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+
+.food{
+  position:absolute;
+  display:block;
+  font-size:clamp(28px,4vw,68px);
+  opacity:.16;
+  filter:drop-shadow(0 8px 12px rgba(244,95,145,.18));
+  animation:floatFood 9s ease-in-out infinite;
+  will-change:transform;
+}
+
+@keyframes floatFood{
+
+  0%,100%{
+    transform:
+      translate3d(0,0,0)
+      rotate(0deg)
+      scale(1);
+  }
+
+  25%{
+    transform:
+      translate3d(12px,-24px,0)
+      rotate(8deg)
+      scale(1.05);
+  }
+
+  50%{
+    transform:
+      translate3d(-8px,-48px,0)
+      rotate(-6deg)
+      scale(.98);
+  }
+
+  75%{
+    transform:
+      translate3d(18px,-18px,0)
+      rotate(6deg)
+      scale(1.04);
+  }
+
+}
+
+
+/* 🍓 FOOD POSITIONS */
+
+.f1{
+  top:5%;
+  left:3%;
+  animation-delay:0s;
+  animation-duration:8s;
+}
+
+.f2{
+  top:12%;
+  right:4%;
+  animation-delay:1s;
+  animation-duration:10s;
+}
+
+.f3{
+  top:32%;
+  left:2%;
+  animation-delay:2s;
+  animation-duration:9s;
+}
+
+.f4{
+  top:48%;
+  right:3%;
+  animation-delay:.5s;
+  animation-duration:11s;
+}
+
+.f5{
+  top:72%;
+  left:4%;
+  animation-delay:3s;
+  animation-duration:10s;
+}
+
+.f6{
+  top:85%;
+  right:5%;
+  animation-delay:1.5s;
+  animation-duration:9s;
+}
+
+.f7{
+  top:24%;
+  left:86%;
+  animation-delay:2.5s;
+  animation-duration:12s;
+}
+
+.f8{
+  top:58%;
+  left:10%;
+  animation-delay:4s;
+  animation-duration:8s;
+}
+
+.f9{
+  top:76%;
+  left:82%;
+  animation-delay:1s;
+  animation-duration:11s;
+}
+
+.f10{
+  top:7%;
+  left:48%;
+  animation-delay:3.5s;
+  animation-duration:9s;
+}
+
+.f11{
+  top:42%;
+  right:13%;
+  animation-delay:2s;
+  animation-duration:10s;
+}
+
+.f12{
+  top:91%;
+  left:43%;
+  animation-delay:4.5s;
+  animation-duration:12s;
+}
+
+.f13{
+  top:20%;
+  left:22%;
+  animation-delay:1.8s;
+  animation-duration:10s;
+}
+
+.f14{
+  top:64%;
+  right:24%;
+  animation-delay:3.2s;
+  animation-duration:9s;
+}
+
+.f15{
+  top:38%;
+  left:45%;
+  animation-delay:.8s;
+  animation-duration:11s;
+}
+
+.f16{
+  top:94%;
+  left:18%;
+  animation-delay:2.8s;
+  animation-duration:10s;
+}
+
 
 /* =========================================
    📱 PAGES
@@ -96,6 +297,8 @@ body{
   width:100%;
   padding:30px 20px;
   animation:pageEnter .6s ease;
+  position:relative;
+  z-index:1;
 }
 
 .page.active{
@@ -108,11 +311,13 @@ body{
     opacity:0;
     transform:translateY(25px);
   }
+
   to{
     opacity:1;
     transform:translateY(0);
   }
 }
+
 
 /* =========================================
    🏠 WELCOME
@@ -127,7 +332,7 @@ body{
 .welcome-card{
   width:min(900px,95%);
   padding:65px 35px;
-  background:rgba(255,255,255,.75);
+  background:rgba(255,255,255,.80);
   backdrop-filter:blur(14px);
   border-radius:50px;
   box-shadow:var(--shadow);
@@ -155,8 +360,13 @@ body{
 }
 
 @keyframes heroFloat{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-16px);}
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-16px);
+  }
 }
 
 .welcome-card h1{
@@ -193,6 +403,7 @@ body{
 .main-btn:hover{
   transform:translateY(-5px) scale(1.05);
 }
+
 
 /* =========================================
    🗂️ MENU
@@ -242,7 +453,7 @@ body{
 
 .menu-card{
   min-height:340px;
-  background:rgba(255,255,255,.88);
+  background:rgba(255,255,255,.90);
   border-radius:35px;
   padding:35px 25px;
   text-align:center;
@@ -304,6 +515,7 @@ body{
   font-weight:600;
 }
 
+
 /* =========================================
    🔙 BACK BUTTON
 ========================================= */
@@ -324,6 +536,7 @@ body{
 .back-btn:hover{
   background:var(--pink-soft);
 }
+
 
 /* =========================================
    📚 VOCABULARY
@@ -359,7 +572,7 @@ body{
 }
 
 .vocab-card{
-  background:white;
+  background:rgba(255,255,255,.95);
   padding:15px;
   border-radius:28px;
   text-align:center;
@@ -399,6 +612,7 @@ body{
   cursor:pointer;
 }
 
+
 /* =========================================
    💬 CONVERSATION
 ========================================= */
@@ -435,7 +649,7 @@ body{
 }
 
 .conversation-card{
-  background:white;
+  background:rgba(255,255,255,.95);
   border-radius:28px;
   padding:25px;
   box-shadow:var(--shadow);
@@ -458,6 +672,7 @@ body{
   text-align:right;
 }
 
+
 /* =========================================
    ⏰ FREQUENCY
 ========================================= */
@@ -476,7 +691,7 @@ body{
 }
 
 .frequency-card{
-  background:white;
+  background:rgba(255,255,255,.95);
   padding:20px;
   text-align:center;
   border-radius:22px;
@@ -494,6 +709,7 @@ body{
   margin:5px;
 }
 
+
 /* =========================================
    🎮 GAME MENU
 ========================================= */
@@ -505,7 +721,7 @@ body{
 }
 
 .game-card{
-  background:white;
+  background:rgba(255,255,255,.95);
   padding:30px 20px;
   border-radius:30px;
   text-align:center;
@@ -538,15 +754,16 @@ body{
   cursor:pointer;
 }
 
+
 /* =========================================
-   GAME AREA
+   🎯 GAME AREA
 ========================================= */
 
 .game-area{
   display:none;
   margin-top:35px;
   padding:35px;
-  background:rgba(255,255,255,.92);
+  background:rgba(255,255,255,.95);
   border-radius:32px;
   box-shadow:var(--shadow);
 }
@@ -648,6 +865,7 @@ body{
   text-align:left;
 }
 
+
 /* =========================================
    📅 FREQUENCY VISUAL
 ========================================= */
@@ -690,8 +908,9 @@ body{
   opacity:.25;
 }
 
+
 /* =========================================
-   EXTERNAL GAME
+   🌴 EXTERNAL GAME
 ========================================= */
 
 .external-game{
@@ -705,7 +924,7 @@ body{
 
 .external-btn{
   display:inline-block;
-  margin-top:20px;
+  margin:20px 8px 0;
   padding:14px 30px;
   border-radius:50px;
   background:white;
@@ -714,11 +933,14 @@ body{
   font-weight:600;
 }
 
+
 /* =========================================
    FOOTER
 ========================================= */
 
 footer{
+  position:relative;
+  z-index:1;
   text-align:center;
   padding:30px;
   margin-top:60px;
@@ -726,6 +948,7 @@ footer{
   background:linear-gradient(135deg,var(--purple),#A14D8A);
   font-size:20px;
 }
+
 
 /* =========================================
    RESPONSIVE
@@ -782,6 +1005,18 @@ footer{
     font-size:20px;
   }
 
+  .food{
+    font-size:clamp(24px,8vw,46px);
+    opacity:.12;
+  }
+
+  .f7,
+  .f11,
+  .f14,
+  .f15{
+    display:none;
+  }
+
 }
 
 </style>
@@ -789,11 +1024,45 @@ footer{
 
 <body>
 
+
+<!-- ========================================
+     🫧 BACKGROUND
+======================================== -->
+
 <div class="decoration">
   <div class="bubble b1"></div>
   <div class="bubble b2"></div>
   <div class="bubble b3"></div>
   <div class="bubble b4"></div>
+</div>
+
+
+<!-- ========================================
+     🍎 FLOATING FOOD BACKGROUND
+======================================== -->
+
+<div class="floating-food-bg" aria-hidden="true">
+
+  <span class="food f1">🍎</span>
+  <span class="food f2">🥦</span>
+  <span class="food f3">🍇</span>
+  <span class="food f4">🍓</span>
+
+  <span class="food f5">🍕</span>
+  <span class="food f6">🍩</span>
+  <span class="food f7">🍫</span>
+  <span class="food f8">🍌</span>
+
+  <span class="food f9">🥕</span>
+  <span class="food f10">🍊</span>
+  <span class="food f11">🧁</span>
+  <span class="food f12">🍔</span>
+
+  <span class="food f13">🍅</span>
+  <span class="food f14">🍦</span>
+  <span class="food f15">🍯</span>
+  <span class="food f16">🥬</span>
+
 </div>
 
 
@@ -861,6 +1130,7 @@ footer{
 </div>
 
 </div>
+
 </div>
 </div>
 
@@ -932,38 +1202,44 @@ I eat + food + frequency.
 
 </div>
 
+
 <div class="conversation-grid">
 
 <div class="conversation-card">
 
 <div class="chat-bubble chat-q">
 👩 <b>How often do you eat apples?</b><br>
-<button class="listen-btn" onclick="speak('How often do you eat apples?')">
+<button class="listen-btn"
+onclick="speak('How often do you eat apples?')">
 🔊 Listen
 </button>
 </div>
 
 <div class="chat-bubble chat-a">
 👦 <b>I eat apples every day.</b><br>
-<button class="listen-btn" onclick="speak('I eat apples every day.')">
+<button class="listen-btn"
+onclick="speak('I eat apples every day.')">
 🔊 Listen
 </button>
 </div>
 
 </div>
 
+
 <div class="conversation-card">
 
 <div class="chat-bubble chat-q">
 👩 <b>How often do you eat pizza?</b><br>
-<button class="listen-btn" onclick="speak('How often do you eat pizza?')">
+<button class="listen-btn"
+onclick="speak('How often do you eat pizza?')">
 🔊 Listen
 </button>
 </div>
 
 <div class="chat-bubble chat-a">
 👦 <b>I eat pizza once a week.</b><br>
-<button class="listen-btn" onclick="speak('I eat pizza once a week.')">
+<button class="listen-btn"
+onclick="speak('I eat pizza once a week.')">
 🔊 Listen
 </button>
 </div>
@@ -1070,7 +1346,7 @@ Next Question ➜
 <div class="external-game">
 
 <div style="font-size:60px">🌴🩷🎮</div>
-   
+
 <h2>PIGGY'S STORY</h2>
 
 <p>Ready for another English adventure?</p>
@@ -1078,15 +1354,13 @@ Next Question ➜
 <a href="https://www.youtube.com/watch?v=5HsFiiGkPPs"
 target="_blank"
 class="external-btn">
-
 Watch Now 🚀
+</a>
 
 <a href="https://piggy-voice-quest.lovable.app/"
 target="_blank"
 class="external-btn">
-
 Play Now 🚀
-
 </a>
 
 </div>
@@ -1343,7 +1617,7 @@ osc.stop(ctx.currentTime+.5);
 ======================================== */
 
 function shuffle(array){
-return [...array].sort(()=>Math.random()-0.5);
+return [...array].sort(()=>Math.random()-.5);
 }
 
 function hideAllGames(){
@@ -1508,7 +1782,6 @@ Play Again 🔄
 
 /* ========================================
    🎮 GAME 2
-   LOOK AT THE PICTURE
    FILL IN THE BLANK
 ======================================== */
 
@@ -1673,7 +1946,6 @@ Play Again 🔄
 /* ========================================
    🎮 GAME 3
    COMPLETE CONVERSATION
-   VISUAL FREQUENCY CLUE
 ======================================== */
 
 let game3Index=0;
